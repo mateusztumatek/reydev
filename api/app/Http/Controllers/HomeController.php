@@ -12,4 +12,7 @@ class HomeController extends Controller
         $menu_top = \menu('home', '_json');
         return response()->json(['top_menu' => $menu_top]);
     }
+    public function home(Request $request){
+
+    }
 }

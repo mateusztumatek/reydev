@@ -1,0 +1,41 @@
+@keyframes slideDown {
+  0%{
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0.5;
+  }
+}
+@keyframes fade_100 {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.fade{
+  animation: fade_100;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.fade-leave-active{
+  position: absolute;
+}

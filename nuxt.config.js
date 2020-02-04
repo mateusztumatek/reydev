@@ -4,7 +4,7 @@ export default {
   /*
   ** Headers of the page
   */
-  api_url: 'http://127.0.0.1:8000',
+  api_url: 'http://127.0.0.2',
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -38,6 +38,7 @@ export default {
   */
   plugins: [
     '~/plugins/mixins',
+    '~/plugins/components',
   ],
   /*
   ** Nuxt.js dev-modules

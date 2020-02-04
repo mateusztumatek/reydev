@@ -1,3 +1,5 @@
+@import "animations";
+@import "colors";
 body{
   overflow-x: hidden;
   background-color: #f2f2f2;
@@ -6,18 +8,34 @@ body{
     font-family: 'Raleway', sans-serif;
   }
 }
-.nuxt-link-exact-active{
-  position: relative;
-  &:after{
-    content: '';
-    position: absolute;
-    bottom: -0px;
-    width: 20%;
-    left: 40%;
-    height: 2px;
-    background-color: #f2f2f2;
+.navbar{
+  .nuxt-link-exact-active{
+    position: relative;
+    &:before{
+      animation: fade;
+      animation-duration: 400ms;
+      animation-fill-mode: forwards;
+      font-size: 0.7rem;
+      content: '<';
+      position: absolute;
+      left: 5px;
+      opacity: 0.5;
+      font-family: 'Raleway', sans-serif;
+    }
+    &:after{
+      animation: fade;
+      animation-duration: 400ms;
+      animation-fill-mode: forwards;
+      font-size: 0.7rem;
+      content: '>';
+      opacity: 0.5;
+      position: absolute;
+      right: 5px;
+      font-family: 'Raleway', sans-serif;
+    }
   }
 }
+
 .vertial-align{
   display: flex;
   flex-direction: column;
@@ -26,13 +44,14 @@ body{
 .logo{
   font-weight: 900;
   letter-spacing: 2px;
-  font-size:0.7rem;
+  font-size:0.9rem;
   color: #222222;
   &:hover{
 
   }
 }
 .navbar{
+  padding: 20px 0px;
   background-color: transparent !important;
   position: absolute;
   top: 0px;
@@ -43,25 +62,34 @@ body{
   }
   .nav-link{
     color: #F2F2F2 !important;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
     letter-spacing: 2px;
-    text-transform: uppercase;
   }
 }
 .navbar-fixed{
+  .nuxt-link-exact-active{
+    &:after{
+      /*
+      background-color: #222222 !important;
+      */
+    }
+  }
+  z-index: 100;
   background-color: #f2f2f2 !important;
   .nav-link, .logo{
     color: #222222 !important;
   }
   position: fixed;
   animation: slideDown;
-  animation-duration: 500ms;
+  animation-duration: 400ms;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
 .navbar-fade{
   animation: fadeUp;
-  animation-duration: 500ms;
+  animation-duration: 400ms;
   animation-timing-function: ease-out;
 }
 @keyframes fadeUp {
@@ -74,24 +102,59 @@ body{
     opacity: 0;
   }
 }
-@keyframes slideDown {
-  0%{
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  100%{
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
+
 .section{
   min-height: 100vh;
 }
 .section-blue{
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6723ec+0,863eed+100 */
-  background: #6723ec; /* Old browsers */
-  background: -moz-linear-gradient(top,  #6723ec 0%, #863eed 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  #6723ec 0%,#863eed 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  #6723ec 0%,#863eed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6723ec', endColorstr='#863eed',GradientType=0 ); /* IE6-9 */
+  background: $primary-color
+}
+@media screen and (min-width: 1200px){
+  .container{
+    max-width: 85%;
+  }
+}
+.header{
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #f2f2f2;
+  font-weight: 900;
+}
+.white--text{
+  color: #f2f2f2;
+}
+.my-button{
+
+  border: 2px solid #f2f2f2;
+  border-radius: 40px;
+  padding: 8px 45px;
+  font-size: 1.5rem;
+  display: inline-block;
+  color: #f2f2f2;
+  transition: all 300ms;
+  transition-timing-function: ease-out;
+  &:hover{
+    text-decoration: none;
+    background-color: #f2f2f2;
+    color: #primary-color;
+  }
+}
+.my-card{
+  &:hover{
+    -webkit-box-shadow: 4px 4px 16px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 4px 4px 16px 0px rgba(0,0,0,0.35);
+    box-shadow: 4px 4px 16px 0px rgba(0,0,0,0.35);
+    cursor: pointer;
+  }
+  transition: all 300ms;
+  -webkit-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.25);
+  box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.25);
+  border-radius: 16px;
+}
+.active-card{
+  -webkit-box-shadow: 8px 8px 22px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 8px 8px 22px 0px rgba(0,0,0,0.35);
+  box-shadow: 8px 8px 22px 0px rgba(0,0,0,0.35);
 }
